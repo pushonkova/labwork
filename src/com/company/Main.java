@@ -24,19 +24,16 @@ public class Main {
         return "";
     }
 
-
-    public static void main(String[] args) {
-        String path = "test2.pas";
-        if (!path.isEmpty()) {
-
-            Parser lexicalParser = new Parser(path);
+    public static void Parse (String input, String output) {
+        if (!input.isEmpty()) {
+            Parser lexicalParser = new Parser(input);
             ArrayList<Token> result = lexicalParser.getResult();
             TokenKind type= TokenKind.Keyword;
             /*for (Token token : resualt) {
                 System.out.println(token.getTokenKind() + " " + token.getTokenValue());
             }*/
             try {
-                FileOutputStream outp = new FileOutputStream("output.html");
+                FileOutputStream outp = new FileOutputStream(output);
                 OutputStreamWriter outps = new OutputStreamWriter(outp);
                 PrintWriter out = new PrintWriter(outps);
                 out.print("<body bgcolor=\"#ffcb85\">");
@@ -56,19 +53,31 @@ public class Main {
                 System.out.print(e);
             }
 
-            try {
-                File htmlFile = new File("output.html");
-                Desktop.getDesktop().browse(htmlFile.toURI());
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
+
+    }
+    }
+
+    public static void main(String[] args) {
+
+        String input = "test2.pas";
+        String output = "output.html";
+
+        try {
+            Parse(input, output);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
 
-
-
+        try {
+            File htmlFile = new File(output);
+            Desktop.getDesktop().browse(htmlFile.toURI());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     }
+
+
 
 
