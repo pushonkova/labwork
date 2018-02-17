@@ -51,31 +51,35 @@ public class Main {
             }
             catch (Exception e) {
                 System.out.print(e);
+
             }
 
 
     }
+
     }
 
     public static void main(String[] args) {
 
-        String input = "test2.pas";
+        String input = "emptyFile.pas";
         String output = "output.html";
 
         try {
             Parse(input, output);
-        } catch (Exception e) {
+
+        }catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
         try {
             File htmlFile = new File(output);
             Desktop.getDesktop().browse(htmlFile.toURI());
-        } catch (Exception e) {
-            e.printStackTrace();
         }
-    }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
 
+
+    }
     }
 
 

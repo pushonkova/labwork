@@ -25,6 +25,11 @@ public class Parser {
         currentPosition = 0;
     }
 
+    public Parser () {
+        tokens = new ArrayList<Token>();
+        currentPosition = 0;
+    }
+
     public ArrayList<Token> getResult() {
         readFile();
         parse();
@@ -59,7 +64,7 @@ public class Parser {
         }
     }
 
-    private void parse() {
+    public void parse() {
         while (this.isInBounds()) {
             this.skipSpaces();
 
@@ -89,7 +94,7 @@ public class Parser {
 
 
 
-    private Token identificationToken()
+    public Token identificationToken()
     {
         for (TokenDefinition definition : Regex.Tokens)
         {
@@ -122,4 +127,15 @@ public class Parser {
         return null;
     }
 
+    public void setText (String text) {
+        this.text=text;
+    }
+
+    public String getText () { return this.text; }
+
+    public void setPath (String path) {
+        this.path = Paths.get(path);
+    }
+
+    public ArrayList getTokens () {return this.tokens; }
 }
