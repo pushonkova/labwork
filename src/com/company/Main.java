@@ -61,7 +61,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String input = "emptyFile.pas";
+        String input = "test2.pas";
         String output = "output.html";
 
         try {

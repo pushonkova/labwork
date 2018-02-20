@@ -138,4 +138,10 @@ public class Parser {
     }
 
     public ArrayList getTokens () {return this.tokens; }
+
+    public String readFileIntoString (String path) {
+        this.setPath(path);
+        this.readFile();
+        return this.getText();
+    }
 }
