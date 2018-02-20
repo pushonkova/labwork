@@ -1,7 +1,9 @@
 package com.company;
 
+import java.nio.charset.MalformedInputException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -48,8 +50,13 @@ public class Parser {
 
             text = stringBuilder.toString().trim();
 
-        } catch (Exception ex) {
-            System.out.println(ex.toString());
+        } catch (NoSuchFileException e) {
+        }
+        catch (MalformedInputException ex) {
+            System.out.println("Wrong file type");
+        }
+        catch (Exception exc) {
+            System.out.println(exc.toString());
         }
     }
 

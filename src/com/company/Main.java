@@ -2,6 +2,8 @@ package com.company;
 
 import java.awt.*;
 import java.io.*;
+import java.nio.charset.MalformedInputException;
+import java.nio.file.NoSuchFileException;
 import java.util.ArrayList;
 
 
@@ -61,23 +63,20 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String input = "test2.pas";
+        String input = "test.pas";
         String output = "output.html";
 
         try {
             Parse(input, output);
-
-        }catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        try {
             File htmlFile = new File(output);
             Desktop.getDesktop().browse(htmlFile.toURI());
         }
-        catch (Exception e) {
+        catch (NullPointerException ex) {
+            System.out.println("File does not exist");
+        }
+        catch (Exception e){
             System.out.println(e.getMessage());
         }
-
 
     }
     }
