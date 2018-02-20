@@ -16,5 +16,4 @@ ReadLn( A );
 Rt:=sqrt(2)/2*A;
 if Rt <= R then WriteLn('Ok')
 ReadLn;
-end.
-//42
+end. //42

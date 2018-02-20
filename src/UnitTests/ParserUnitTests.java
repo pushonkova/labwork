@@ -23,6 +23,13 @@ public class ParserUnitTests {
    }
 
     @Test
+    public void readFileTextShouldBeSomeText () {
+        testParser.setPath("testFileRead.pas");
+        testParser.readFile();
+        assertEquals("some text", testParser.getText());
+    }
+
+    @Test
     public void parseIdentificationOneTokenTest () {
             String textToParse = "//comment" ;
             testParser.setText(textToParse);
@@ -55,13 +62,6 @@ public class ParserUnitTests {
             assertEquals(expectedTokens.get(i).getTokenKind(), parsedTokens.get(i).getTokenKind());
         }
 
-    }
-
-    @Test
-    public void readFileTextShouldBeSomeText () {
-        testParser.setPath("testFileRead.pas");
-        testParser.readFile();
-        assertEquals("some text", testParser.getText());
     }
 
     @Test
