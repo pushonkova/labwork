@@ -38,7 +38,7 @@ public class ParserUnitTests {
     }
 
     @Test
-    public void readFileTestShouldBeSomeText () {
+    public void readFileTextShouldBeSomeText () {
         testParser.setPath("testFileRead.pas");
         testParser.readFile();
         assertEquals("some text", testParser.getText());
